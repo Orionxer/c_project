@@ -1,3 +1,0 @@
-/home/orionxer/c_project/basic/debug/CMakeFiles/rebuild_cache.dir
-/home/orionxer/c_project/basic/debug/CMakeFiles/edit_cache.dir
-/home/orionxer/c_project/basic/debug/CMakeFiles/main.dir

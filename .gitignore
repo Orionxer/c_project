@@ -1,0 +1,4 @@
+# 忽略build文件夹
+buiild/
+# 忽略debug文件夹
+debug/
