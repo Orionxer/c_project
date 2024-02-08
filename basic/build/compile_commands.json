@@ -1,0 +1,13 @@
+[
+{
+  "directory": "/home/orionxer/c_project/basic/build",
+  "command": "/usr/bin/gcc  -I../include  -g   -o CMakeFiles/main.dir/main.c.o   -c /home/orionxer/c_project/basic/main.c",
+  "file": "/home/orionxer/c_project/basic/main.c"
+},
+
+{
+  "directory": "/home/orionxer/c_project/basic/build",
+  "command": "/usr/bin/gcc  -I../include  -g   -o CMakeFiles/main.dir/source/sha256.c.o   -c /home/orionxer/c_project/basic/source/sha256.c",
+  "file": "/home/orionxer/c_project/basic/source/sha256.c"
+}
+]
