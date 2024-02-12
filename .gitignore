@@ -1,4 +1,4 @@
-# 忽略build文件夹
-buiild/
-# 忽略debug文件夹
-debug/
+# 忽略任意深度的build文件夹
+**/build/
+# 忽略任意深度的debug文件夹
+**/debug/
