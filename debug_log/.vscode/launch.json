@@ -1,0 +1,21 @@
+{
+    // 更多调试设置参考：https://code.visualstudio.com/docs/cpp/launch-json-reference
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Project debug (C/C++ GDB)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/debug/main",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false, // 启动调试时在main函数暂停
+            "externalConsole": false,
+            "preLaunchTask": "Build For Debug",
+            "linux": {
+                "MIMode": "gdb",
+                "miDebuggerPath": "/usr/bin/gdb"
+            }
+        }
+    ]
+}
