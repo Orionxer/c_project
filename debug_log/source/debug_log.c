@@ -7,25 +7,25 @@ void print_hex_table(uint8_t *data, uint16_t len)
 #if DGB_ENABLE
     // 打印表头
     printf("     ");
-    printf(ANSI_COLOR_MAGENTA);
+    PRINT_ANSI_COLOR(ANSI_COLOR_MAGENTA);
     for (size_t i = 0; i < 0x10; i++)
     {
         printf("%02X ", (unsigned int)i);
     }
-    printf(ANSI_COLOR_RESET);
+    PRINT_ANSI_COLOR(ANSI_COLOR_RESET);
     printf("\n");
     // 打印表列以及有效数据, 每打印16个数据换一行
     for (size_t i = 0; i < len; i++)
     {
         if (i % 16 == 0)
         {
-            printf(ANSI_COLOR_MAGENTA);
+            PRINT_ANSI_COLOR(ANSI_COLOR_MAGENTA);
             printf("%04X ", (unsigned int)i);
-            printf(ANSI_COLOR_RESET);
+            PRINT_ANSI_COLOR(ANSI_COLOR_RESET);
         }
-        printf(ANSI_COLOR_CYAN);
+        PRINT_ANSI_COLOR(ANSI_COLOR_CYAN);
         printf("%02X ", data[i]);
-        printf(ANSI_COLOR_RESET);
+        PRINT_ANSI_COLOR(ANSI_COLOR_RESET);
         if ((i + 1) % 16 == 0)
         {
             printf("\n");
