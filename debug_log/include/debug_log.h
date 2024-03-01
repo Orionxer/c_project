@@ -117,6 +117,20 @@
 #define DBG_LOGW(...)
 #define DBG_LOGE(...)
 #endif
+
+/**
+ * @brief   自定义打印
+ * @note    不受级别控制，用于打印系统开机提示等关键信息
+ * @note    第一个参数传入颜色，第二个参数传入需要打印的信息
+ * @note    最好传入两个宏以避免警告
+*/
+#define ADVANCED_LOG(color, ...) \
+    PRINT_ANSI_COLOR(color); \
+    printf(__VA_ARGS__); \
+    PRINT_ANSI_COLOR(ANSI_COLOR_RESET); \
+    printf("\n");
+
+
 /**
  * @brief   以16进制打印数据
  * @param   [in] data   打印的数据数据

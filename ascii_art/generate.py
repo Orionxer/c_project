@@ -1,9 +1,9 @@
 ﻿import pyfiglet
 
 # 选择ASCII艺术字体风格
-font = "banner3"
+font = "smkeyboard"
 # 需要生成的内容
-text = "RTOS"
+text = "LOG DEMO"
 # 是否需要支持ANSI转义序列
 enable_color = 0
 # 选择输出颜色
@@ -34,15 +34,16 @@ result = result.replace("'", "")
 # 生成C代码内容
 c_code = """
 #include <stdio.h>
-// 目标字符串
-const char *str = "%s";
+
+#define PROJECT_NAME "%s"
+
 int main() {
-    printf("%%s\\n", str);
+    printf("%%s\\n", PROJECT_NAME);
     return 0;
 }
 """
 
-# 将目标字符串连接到final_c_code中
+# 将目标字符串连接到c_code中
 final_c_code = c_code % result
 # 保存文件
 with open("ascii.c", "w") as file:

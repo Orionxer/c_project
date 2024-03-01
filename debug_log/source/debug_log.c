@@ -37,6 +37,10 @@ void print_hex_table(uint8_t *data, uint16_t len)
 
 void debug_log_demo(void)
 {
+    // 定义项目名称
+    #define PROJECT_NAME_ART        " ____ ____ ____ ____ ____ ____ ____ ____ \n||L |||O |||G |||- |||D |||E |||M |||O ||\n||__|||__|||__|||__|||__|||__|||__|||__||\n|/__\\|/__\\|/__\\|/__\\|/__\\|/__\\|/__\\|/__\\|\n"
+    // 彩色打印Demo
+    ADVANCED_LOG(ANSI_COLOR_YELLOW, PROJECT_NAME_ART);
     DBG_LOGI("中文测试输出, 需要确保终端支持UTF-8的显示, 否则显示乱码\n");
     // 输出所有等级测试，可以尝试修改打印等级的宏以观察输出效果 DBG_LOG_LEVEL
     DBG_LOGD("The Log Level is Debug");
