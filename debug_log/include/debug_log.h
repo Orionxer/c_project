@@ -15,7 +15,7 @@
  * @brief   调试输出总开关
  * @note    处于禁用状态时关闭所有输出
 */
-#define DGB_ENABLE          1
+#define DBG_ENABLE          1
 
 /**
  * @brief   是否启用颜色输出
@@ -26,10 +26,10 @@
 /**
  * @brief   指定 输出打印等级
  * @note    1. 只会打印当前等级及其以上的等级的信息
- * @note    2. 假设 指定的打印等级 = DGB_LOG_WARNING,
- *          则只会打印 DGB_LOG_WARNING 和 DGB_LOG_ERROR两个等级的信息
+ * @note    2. 假设 指定的打印等级 = DBG_LOG_WARNING,
+ *          则只会打印 DBG_LOG_WARNING 和 DBG_LOG_ERROR两个等级的信息
 */
-#define DBG_LOG_LEVEL       DGB_LOG_DEBUG
+#define DBG_LOG_LEVEL       DBG_LOG_DEBUG
 
 
 /*************************** 调试输出保留宏 ********************************/
@@ -37,13 +37,13 @@
  * @brief   输出的等级从高到低的排序: [错误] > [警告] > [普通] > [调试]
 */
 // [错误]输出等级 
-#define DGB_LOG_ERROR       1
+#define DBG_LOG_ERROR       1
 // [警告]输出等级
-#define DGB_LOG_WARNING     2
+#define DBG_LOG_WARNING     2
 // [普通]输出等级
-#define DGB_LOG_INFO        3
+#define DBG_LOG_INFO        3
 // [调试]输出等级
-#define DGB_LOG_DEBUG       4
+#define DBG_LOG_DEBUG       4
 
 #define ANSI_COLOR_RED      "\x1b[31m"
 #define ANSI_COLOR_GREEN    "\x1b[32m"
@@ -63,9 +63,9 @@
 #define filename(x) strrchr(x,'/')?strrchr(x,'/')+1:x
 
 // 调试输出总开关 处于打开状态
-#if DGB_ENABLE
+#if DBG_ENABLE
 // [调试]等级控制
-#if DBG_LOG_LEVEL >= DGB_LOG_DEBUG
+#if DBG_LOG_LEVEL >= DBG_LOG_DEBUG
 #define DBG_LOGD(...) \
     PRINT_ANSI_COLOR(ANSI_COLOR_BLUE); \
     printf("[%s]: ", __func__); \
@@ -77,7 +77,7 @@
 #endif
 
 // [普通]等级控制
-#if DBG_LOG_LEVEL >= DGB_LOG_INFO
+#if DBG_LOG_LEVEL >= DBG_LOG_INFO
 #define DBG_LOGI(...) \
     PRINT_ANSI_COLOR(ANSI_COLOR_GREEN); \
     printf("[%s]: ", __func__); \
@@ -89,7 +89,7 @@
 #endif
 
 // [警告]等级控制
-#if DBG_LOG_LEVEL >= DGB_LOG_WARNING
+#if DBG_LOG_LEVEL >= DBG_LOG_WARNING
 #define DBG_LOGW(...) \
     PRINT_ANSI_COLOR(ANSI_COLOR_YELLOW); \
     printf("[%s:%d %s]: ", filename(__FILE__), __LINE__, __func__); \
@@ -101,7 +101,7 @@
 #endif
 
 // [错误]等级控制
-#if DBG_LOG_LEVEL >= DGB_LOG_ERROR
+#if DBG_LOG_LEVEL >= DBG_LOG_ERROR
 #define DBG_LOGE(...) \
     PRINT_ANSI_COLOR(ANSI_COLOR_RED); \
     printf("[%s:%d %s]: ", filename(__FILE__), __LINE__, __func__); \

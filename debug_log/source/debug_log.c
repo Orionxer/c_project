@@ -4,7 +4,7 @@
 
 void print_hex_table(uint8_t *data, uint16_t len)
 {
-#if DGB_ENABLE
+#if DBG_ENABLE
     // 打印表头
     printf("     ");
     PRINT_ANSI_COLOR(ANSI_COLOR_MAGENTA);
@@ -54,7 +54,7 @@ void debug_log_demo(void)
         array[i] = i;
     }
     print_hex_table(array, 100);
-#if DGB_ENABLE == 0
+#if DBG_ENABLE == 0
     printf("## Debug Print Disable, NO log print\n");
 #endif
 }
