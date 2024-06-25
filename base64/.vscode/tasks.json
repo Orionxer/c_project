@@ -1,0 +1,52 @@
+{
+    // 更多任务设置参考：https://go.microsoft.com/fwlink/?LinkId=733558
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Generate Debug",
+            "type": "cppbuild",
+            "command": "cmake",
+            "args": [
+                "-B",
+                "debug",
+                "-D",
+                "CMAKE_BUILD_TYPE=Debug",
+                "-G",
+                "Unix Makefiles",
+                "${workspaceFolder}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+        },
+        {
+            "label": "Build For Debug",
+            "type": "cppbuild",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "debug"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "dependsOn": [
+                "Generate Debug"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        }
+    ]
+}
