@@ -59,52 +59,41 @@
 #define PRINT_ANSI_COLOR(...)
 #endif
 
+
 // 调试输出总开关 处于打开状态
 #if DBG_ENABLE
+// 日志打印格式
+#define DBG_LOG(color, ...)                 \
+        PRINT_ANSI_COLOR(color);            \
+        printf("[%s]: ", __func__);         \
+        printf(__VA_ARGS__);                \
+        PRINT_ANSI_COLOR(ANSI_COLOR_RESET); \
+        printf("\n");                       
+
 // [调试]等级控制
 #if DBG_LOG_LEVEL >= DBG_LOG_DEBUG
-#define DBG_LOGD(...) \
-    PRINT_ANSI_COLOR(ANSI_COLOR_BLUE); \
-    printf("[%s]: ", __func__); \
-    printf(__VA_ARGS__); \
-    PRINT_ANSI_COLOR(ANSI_COLOR_RESET); \
-    printf("\n");
+#define DBG_LOGD(...) DBG_LOG(ANSI_COLOR_BLUE, __VA_ARGS__);
 #else
 #define DBG_LOGD(...)
 #endif
 
 // [普通]等级控制
 #if DBG_LOG_LEVEL >= DBG_LOG_INFO
-#define DBG_LOGI(...) \
-    PRINT_ANSI_COLOR(ANSI_COLOR_GREEN); \
-    printf("[%s]: ", __func__); \
-    printf(__VA_ARGS__); \
-    PRINT_ANSI_COLOR(ANSI_COLOR_RESET); \
-    printf("\n");
+#define DBG_LOGI(...) DBG_LOG(ANSI_COLOR_GREEN, __VA_ARGS__);
 #else
 #define DBG_LOGI(...)
 #endif
 
 // [警告]等级控制
 #if DBG_LOG_LEVEL >= DBG_LOG_WARNING
-#define DBG_LOGW(...) \
-    PRINT_ANSI_COLOR(ANSI_COLOR_YELLOW); \
-    printf("[%s]: ", __func__); \
-    printf(__VA_ARGS__); \
-    PRINT_ANSI_COLOR(ANSI_COLOR_RESET); \
-    printf("\n");
+#define DBG_LOGW(...) DBG_LOG(ANSI_COLOR_YELLOW, __VA_ARGS__);
 #else
 #define DBG_LOGW(...)
 #endif
 
 // [错误]等级控制
 #if DBG_LOG_LEVEL >= DBG_LOG_ERROR
-#define DBG_LOGE(...) \
-    PRINT_ANSI_COLOR(ANSI_COLOR_RED); \
-    printf("[%s]: ", __func__); \
-    printf(__VA_ARGS__); \
-    PRINT_ANSI_COLOR(ANSI_COLOR_RESET); \
-    printf("\n");
+#define DBG_LOGE(...) DBG_LOG(ANSI_COLOR_RED, __VA_ARGS__);
 #else
 #define DBG_LOGE(...)
 #endif
