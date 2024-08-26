@@ -59,9 +59,6 @@
 #define PRINT_ANSI_COLOR(...)
 #endif
 
-// 只获取文件名
-#define filename(x) strrchr(x,'/')?strrchr(x,'/')+1:x
-
 // 调试输出总开关 处于打开状态
 #if DBG_ENABLE
 // [调试]等级控制
@@ -92,7 +89,7 @@
 #if DBG_LOG_LEVEL >= DBG_LOG_WARNING
 #define DBG_LOGW(...) \
     PRINT_ANSI_COLOR(ANSI_COLOR_YELLOW); \
-    printf("[%s:%d %s]: ", filename(__FILE__), __LINE__, __func__); \
+    printf("[%s]: ", __func__); \
     printf(__VA_ARGS__); \
     PRINT_ANSI_COLOR(ANSI_COLOR_RESET); \
     printf("\n");
@@ -104,7 +101,7 @@
 #if DBG_LOG_LEVEL >= DBG_LOG_ERROR
 #define DBG_LOGE(...) \
     PRINT_ANSI_COLOR(ANSI_COLOR_RED); \
-    printf("[%s:%d %s]: ", filename(__FILE__), __LINE__, __func__); \
+    printf("[%s]: ", __func__); \
     printf(__VA_ARGS__); \
     PRINT_ANSI_COLOR(ANSI_COLOR_RESET); \
     printf("\n");
